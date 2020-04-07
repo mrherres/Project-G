@@ -4,18 +4,59 @@ def get_input():
     p1_list = []
     p1 = entry_field.get()
     p1_list = p1_list.append(p1)
-    print(p1)
+    check_score(p1, root)
+    
+def check_score(answer, root):
+    correct_list = ["blij", "bi", "bil", "bijl"]
+    entry_field.delete(0, END)
+    if answer in correct_list:
+        label = Text(root)
+        label.insert(INSERT, "Correct! You get 5 points\nYou have .. points!\n")
+        label.grid(row=6, column=7)
+        answer_list.append(answer)
+        label.insert(INSERT, answer_list)
+    else:
+        label = Text(root)
+        label.insert(INSERT, "Nope, try again!\nYou have .. points!")
+        label.grid(row=6, column=7)
+        label.insert(INSERT, answer_list)
+
+def create_text_icon(a_word, root):
+        icon0 = Text(root, height=1, width=1)
+        icon0.grid(row=2, column=2)
+        icon0.insert(INSERT, a_word[3])
+        icon0.insert(END, "")
+
+        icon1 = Text(root, height=1, width=1)
+        icon1.grid(row=2, column=3)
+        icon1.insert(INSERT, a_word[0])
+        icon1.insert(END, "")
+
+        icon2 = Text(root, height=1, width=1)
+        icon2.grid(row=2, column=4)
+        icon2.insert(INSERT, a_word[2])
+        icon2.insert(END, "")
+
+        icon3 = Text(root, height=1, width=1)
+        icon3.grid(row=2, column=5)
+        icon3.insert(INSERT, a_word[1])
+        icon3.insert(END, "")
 
 if __name__ == "__main__":
     
     root = Tk()
-    root.geometry("350x200")
+    root.geometry("700x400")
+    
+    answer_list = []
     
     entry_field = Entry(root)
-    entry_field.grid(row=0, column=1)
+    entry_field.grid(row=3, column=1)
+    entry_field.focus()
     
     button1 = Button(root, command = get_input)
-    button1.grid(row=1, column=2)
-    
+    button1.grid(row=3, column=6)
+
+    a = create_text_icon("blij", root)
+
     root.mainloop()
 
