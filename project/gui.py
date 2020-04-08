@@ -9,17 +9,28 @@ def get_input():
 def check_score(answer, root):
     correct_list = ["blij", "bi", "bil", "bijl"]
     entry_field.delete(0, END)
-    if answer in correct_list:
-        label = Text(root)
-        label.insert(INSERT, "Correct! You get 5 points\nYou have .. points!\n")
-        label.grid(row=6, column=7)
+    if answer.lower() in correct_list and answer.lower() not in answer_list:
         answer_list.append(answer)
-        label.insert(INSERT, answer_list)
-    else:
+        score = 5 * len(answer_list)
         label = Text(root)
-        label.insert(INSERT, "Nope, try again!\nYou have .. points!")
+        label.insert(INSERT, "Correct! You get 5 points\nYou have {0} points!\n".format(score))
         label.grid(row=6, column=7)
         label.insert(INSERT, answer_list)
+
+    elif answer.lower() in answer_list:
+        score = 5 * len(answer_list)
+        label = Text(root)
+        label.insert(INSERT, "Oops! You already had that one!\nYou have {0} points!\n".format(score))
+        label.grid(row=6, column=7)
+        label.insert(INSERT, answer_list)
+
+    else:
+        score = 5 * len(answer_list)
+        label = Text(root)
+        label.insert(INSERT, "Nope, try again!\nYou have {0} points!\n".format(score))
+        label.grid(row=6, column=7)
+        label.insert(INSERT, answer_list)
+
 
 def create_text_icon(a_word, root):
         icon0 = Text(root, height=1, width=1)
