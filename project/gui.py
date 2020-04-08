@@ -33,40 +33,26 @@ def check_score(answer, root):
 
 
 def create_text_icon(a_word, root):
-        icon0 = Text(root, height=1, width=1, font='Arial 30', bg='pink')
-        icon0.grid(row=1, column=1, sticky='w', padx=15)
-        icon0.insert(INSERT, a_word[3])
-        icon0.insert(END, "")
+        icon1 = Button(root, height=1, width=1, font='Arial 30', bg='pink', text=a_word[4])
+        icon1.grid(row=1, column=1, sticky='w', padx=30)
 
-        icon1 = Text(root, height=1, width=1, font='Arial 30', bg='pink')
-        icon1.grid(row=1, column=1, sticky='w', padx=45)
-        icon1.insert(INSERT, a_word[0])
-        icon1.insert(END, "")
+        icon2 = Button(root, height=1, width=1, font='Arial 30', bg='pink', text=a_word[2])
+        icon2.grid(row=1, column=1, sticky='w', padx=90)
 
-        icon2 = Text(root, height=1, width=1, font='Arial 30', bg='pink')
-        icon2.grid(row=2, column=1, sticky='w')
-        icon2.insert(INSERT, a_word[2])
-        icon2.insert(END, "")
+        icon3 = Button(root, height=1, width=1, font='Arial 30', bg='pink', text=a_word[3])
+        icon3.grid(row=2, column=1, sticky='w')
 
-        icon3 = Text(root, height=1, width=1, font='Arial 30', bg='pink')
-        icon3.grid(row=2, column=1, sticky='w', padx=30)
-        icon3.insert(INSERT, a_word[1])
-        icon3.insert(END, "")
-
-        icon4 = Text(root, height=1, width=1, font='Arial 30', bg='pink')
+        icon4 = Button(root, height=1, width=1, font='Arial 30', bg='yellow', text=a_word[1])
         icon4.grid(row=2, column=1, sticky='w', padx=60)
-        icon4.insert(INSERT, a_word[4])
-        icon4.insert(END, "")
 
-        icon5 = Text(root, height=1, width=1, font='Arial 30', bg='pink')
-        icon5.grid(row=3, column=1, sticky='w', padx=15)
-        icon5.insert(INSERT, a_word[6])
-        icon5.insert(END, "")
+        icon5 = Button(root, height=1, width=1, font='Arial 30', bg='pink', text=a_word[6])
+        icon5.grid(row=2, column=1, sticky='w', padx=120)
 
-        icon6 = Text(root, height=1, width=1, font='Arial 30', bg='pink')
-        icon6.grid(row=3, column=1, sticky='w', padx=45)
-        icon6.insert(INSERT, a_word[5])
-        icon6.insert(END, "")
+        icon6 = Button(root, height=1, width=1, font='Arial 30', bg='pink', text=a_word[0])
+        icon6.grid(row=3, column=1, sticky='w', padx=30)
+
+        icon7 = Button(root, height=1, width=1, font='Arial 30', bg='pink', text=a_word[5])
+        icon7.grid(row=3, column=1, sticky='w', padx=90)
 
 
 if __name__ == "__main__":
