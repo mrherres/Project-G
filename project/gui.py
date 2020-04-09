@@ -1,4 +1,5 @@
 from tkinter import *
+import load_words
 
 def get_input():
     p1_list = []

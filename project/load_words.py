@@ -43,6 +43,18 @@ def get_random_word(uniq_char_words):
     
     return random_word
 
+def correct_answer_finder(complete_list, random_word):
+    correct_answers = []
+    for item in complete_list:
+        checked_word = ""
+        if len(item) < 8:
+            for char in item:
+                if char in random_word:
+                    checked_word += char
+        if len(checked_word) == len(item):
+            correct_answers.append(item)
+    return correct_answers
+
 
 if __name__ == "__main__":
     english_words = load_words()
@@ -50,5 +62,8 @@ if __name__ == "__main__":
     seven_char_list = seven_char_words(complete_list)
     uniq_char_words = get_uniq(seven_char_list)
     random_word = get_random_word(uniq_char_words)#the word in the honeycomb
-    
+    correct_answers = correct_answer_finder(complete_list, random_word)
+
+
+    print(correct_answers)
     print(random_word)
