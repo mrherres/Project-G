@@ -58,14 +58,24 @@ def create_text_icon(a_word, root):
 
 
 def index_word(word, must_use_char):
+    char_list = []
     print(word)
     word = word.replace(must_use_char, "")
     print(must_use_char)
     print(word)
-    char1 = word[random.randint(0, 7)]
+    char1 = word[random.randint(0, 5)]
     word = word.replace(char1, "")
-    char2 = word[random.randint(0, 6)]
-    print(char1, char2)
+    char2 = word[random.randint(0, 4)]
+    word = word.replace(char2, "")
+    char3 = word[random.randint(0, 3)]
+    word = word.replace(char3, "")
+    char4 = word[random.randint(0, 2)]
+    word = word.replace(char4, "")
+    char5 = word[random.randint(0, 1)]
+    word = word.replace(char5, "")
+    char6 = word
+   
+    print(char1, char2, char3, char4, char5, char6)
 
 
 if __name__ == "__main__":
@@ -87,7 +97,7 @@ if __name__ == "__main__":
     seven_char_list = seven_char_words(complete_list)
     uniq_char_words = get_uniq(seven_char_list)
     random_word = get_random_word(uniq_char_words)#the word in the honeycomb
-    #correct_answers = correct_answer_finder(complete_list, random_word)
+    correct_answers = correct_answer_finder(complete_list, random_word, must_use_char)
     must_use_char = must_use_char_pick(random_word)
 
 
