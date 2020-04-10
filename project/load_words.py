@@ -3,10 +3,12 @@ import json
 import random
 
 def load_words():
-    with open('words_dictionary.json', 'r') as word_file:
-        valid_words = set(word_file.read().split())
+    all_words = set('AI')
+    fname = 'nederlands.txt'
+    with open(fname) as f:
+        all_words.update(f.read().splitlines())
 
-    return valid_words
+    return all_words
     
 def remove_punc(english_words):
     correct_list = [s.replace('"', '') for s in english_words]
