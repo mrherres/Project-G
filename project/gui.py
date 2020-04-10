@@ -16,27 +16,27 @@ def check_score(answer, root):
         if (pangram_check(answer, random_word) == True):
             earned_points += 7
         total_points = score_count(answer_list, random_word)
-        label = Text(root, width='30')
+        label = Text(root, width='30', wrap=WORD)
         label.insert(INSERT, "Correct! You get {0} points\nYou have {1} points!\n".format(earned_points, total_points))
         label.grid(row=6, column=1, sticky='w')
-        label.insert(INSERT, "{0} words remaining.".format(len(correct_list) - len(answer_list)))
+        label.insert(INSERT, "{0} words remaining.\n".format(len(correct_list) - len(answer_list)))
         label.grid(row=6, column=1, sticky='w')
         label.insert(INSERT, answer_list)
 
     elif answer.lower() in answer_list:
         total_points = score_count(answer_list, random_word)
-        label = Text(root, width='30')
+        label = Text(root, width='30', wrap=WORD)
         label.insert(INSERT, "Oops! You already had that one!\nYou have {0} points!\n".format(total_points))
         label.grid(row=6, column=1, sticky='w')
-        label.insert(INSERT, "{0} words remaining.".format(len(correct_list) - len(answer_list)))
+        label.insert(INSERT, "{0} words remaining.\n".format(len(correct_list) - len(answer_list)))
         label.insert(INSERT, answer_list)
 
     else:
         total_points = score_count(answer_list, random_word)
-        label = Text(root, width='30')
+        label = Text(root, width='30', wrap=WORD)
         label.insert(INSERT, "Nope, try again!\nYou have {0} points!\n".format(total_points))
         label.grid(row=6, column=1, sticky='w')
-        label.insert(INSERT, "{0} words remaining.".format(len(correct_list) - len(answer_list)))
+        label.insert(INSERT, "{0} words remaining.\n".format(len(correct_list) - len(answer_list)))
         label.insert(INSERT, answer_list)
 
 
