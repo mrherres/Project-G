@@ -45,12 +45,15 @@ def get_random_word(uniq_char_words):
 
 def correct_answer_finder(complete_list, random_word):
     correct_answers = []
+    must_use_char = random_word[random.randint(1, len(random_word))]
+    print(must_use_char)
     for item in complete_list:
         checked_word = ""
         if len(item) < 8:
-            for char in item:
-                if char in random_word:
-                    checked_word += char
+            if must_use_char in item:
+                for char in item:
+                    if char in random_word:
+                        checked_word += char
         if len(checked_word) == len(item):
             correct_answers.append(item)
     return correct_answers
