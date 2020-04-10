@@ -56,6 +56,18 @@ def create_text_icon(a_word, root):
         icon7.grid(row=3, column=1, sticky='w', padx=90)
 
 
+
+def index_word(word, must_use_char):
+    print(word)
+    word = word.replace(must_use_char, "")
+    print(must_use_char)
+    print(word)
+    char1 = word[random.randint(0, 7)]
+    word = word.replace(char1, "")
+    char2 = word[random.randint(0, 6)]
+    print(char1, char2)
+
+
 if __name__ == "__main__":
     
     root = Tk()
@@ -76,12 +88,14 @@ if __name__ == "__main__":
     uniq_char_words = get_uniq(seven_char_list)
     random_word = get_random_word(uniq_char_words)#the word in the honeycomb
     #correct_answers = correct_answer_finder(complete_list, random_word)
+    must_use_char = must_use_char_pick(random_word)
 
 
     #print(correct_answers)
     #print(random_word)
 
     a = create_text_icon(random_word, root)
+    index_word(random_word, must_use_char)
 
 
     root.mainloop()
