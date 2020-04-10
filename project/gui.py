@@ -8,7 +8,7 @@ def get_input():
     check_score(p1, root)
     
 def check_score(answer, root):
-    correct_list = correct_answer_finder(complete_list, random_word)
+    correct_list = correct_answer_finder(complete_list, random_word, must_use_char)
     entry_field.delete(0, END)
     if answer.lower() in correct_list and answer.lower() not in answer_list:
         answer_list.append(answer)
@@ -33,36 +33,33 @@ def check_score(answer, root):
         label.insert(INSERT, answer_list)
 
 
-def create_text_icon(a_word, root):
-        icon1 = Button(root, height=1, width=1, font='Arial 30', bg='pink', text=a_word[4])
+def create_text_icon(a_word, root, char_list):
+        icon1 = Button(root, height=1, width=1, font='Arial 30', bg='pink', text=char_list[0])
         icon1.grid(row=1, column=1, sticky='w', padx=30)
 
-        icon2 = Button(root, height=1, width=1, font='Arial 30', bg='pink', text=a_word[2])
+        icon2 = Button(root, height=1, width=1, font='Arial 30', bg='pink', text=char_list[1])
         icon2.grid(row=1, column=1, sticky='w', padx=90)
 
-        icon3 = Button(root, height=1, width=1, font='Arial 30', bg='pink', text=a_word[3])
+        icon3 = Button(root, height=1, width=1, font='Arial 30', bg='pink', text=char_list[2])
         icon3.grid(row=2, column=1, sticky='w')
 
         icon4 = Button(root, height=1, width=1, font='Arial 30', bg='yellow', text=must_use_char)
         icon4.grid(row=2, column=1, sticky='w', padx=60)
 
-        icon5 = Button(root, height=1, width=1, font='Arial 30', bg='pink', text=a_word[6])
+        icon5 = Button(root, height=1, width=1, font='Arial 30', bg='pink', text=char_list[3])
         icon5.grid(row=2, column=1, sticky='w', padx=120)
 
-        icon6 = Button(root, height=1, width=1, font='Arial 30', bg='pink', text=a_word[0])
+        icon6 = Button(root, height=1, width=1, font='Arial 30', bg='pink', text=char_list[4])
         icon6.grid(row=3, column=1, sticky='w', padx=30)
 
-        icon7 = Button(root, height=1, width=1, font='Arial 30', bg='pink', text=a_word[5])
+        icon7 = Button(root, height=1, width=1, font='Arial 30', bg='pink', text=char_list[5])
         icon7.grid(row=3, column=1, sticky='w', padx=90)
 
 
 
 def index_word(word, must_use_char):
-    char_list = []
     print(word)
     word = word.replace(must_use_char, "")
-    print(must_use_char)
-    print(word)
     char1 = word[random.randint(0, 5)]
     word = word.replace(char1, "")
     char2 = word[random.randint(0, 4)]
@@ -76,6 +73,8 @@ def index_word(word, must_use_char):
     char6 = word
    
     print(char1, char2, char3, char4, char5, char6)
+    char_list = [char1, char2, char3, char4, char5, char6]
+    return char_list
 
 
 if __name__ == "__main__":
@@ -97,15 +96,14 @@ if __name__ == "__main__":
     seven_char_list = seven_char_words(complete_list)
     uniq_char_words = get_uniq(seven_char_list)
     random_word = get_random_word(uniq_char_words)#the word in the honeycomb
-    correct_answers = correct_answer_finder(complete_list, random_word, must_use_char)
     must_use_char = must_use_char_pick(random_word)
+    correct_answers = correct_answer_finder(complete_list, random_word, must_use_char)
 
 
     #print(correct_answers)
     #print(random_word)
-
-    a = create_text_icon(random_word, root)
-    index_word(random_word, must_use_char)
+    chars_list = index_word(random_word, must_use_char)
+    a = create_text_icon(random_word, root, chars_list)
 
 
     root.mainloop()

@@ -45,7 +45,7 @@ def get_random_word(uniq_char_words):
 
 
 def must_use_char_pick(random_word):
-    must_use_char = random_word[random.randint(1, 7)]
+    must_use_char = random_word[random.randint(0, 6)]
     return must_use_char
 
 def correct_answer_finder(complete_list, random_word, must_use_char):
