@@ -38,14 +38,18 @@ def get_uniq(seven_char_list):
 
 
 def get_random_word(uniq_char_words):
-    number = random.randint(1, len(uniq_char_words))
+    number = random.randint(1, 7)
     random_word = uniq_char_words[number]
     
     return random_word
 
-def correct_answer_finder(complete_list, random_word):
-    correct_answers = []
+
+def must_use_char_pick(random_word):
     must_use_char = random_word[random.randint(1, len(random_word))]
+    return must_use_char
+
+def correct_answer_finder(complete_list, random_word, must_use_char):
+    correct_answers = []
     for item in complete_list:
         checked_word = ""
         if len(item) < 8:
@@ -58,14 +62,11 @@ def correct_answer_finder(complete_list, random_word):
     return correct_answers
 
 
-#if __name__ == "__main__":
-    #english_words = load_words()
-    #complete_list = remove_punc(english_words)#use this list for all words
-    #seven_char_list = seven_char_words(complete_list)
-    #uniq_char_words = get_uniq(seven_char_list)
-    #random_word = get_random_word(uniq_char_words)#the word in the honeycomb
-    #correct_answers = correct_answer_finder(complete_list, random_word)
-
-
-    #print(correct_answers)
-    #print(random_word)
+if __name__ == "__main__":
+    english_words = load_words()
+    complete_list = remove_punc(english_words)#use this list for all words
+    seven_char_list = seven_char_words(complete_list)
+    uniq_char_words = get_uniq(seven_char_list)
+    random_word = get_random_word(uniq_char_words)#the word in the honeycomb
+    must_use_char = must_use_char_pick(random_word)
+    correct_answers = correct_answer_finder(complete_list, random_word, must_use_char)
