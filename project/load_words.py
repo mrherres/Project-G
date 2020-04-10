@@ -52,7 +52,7 @@ def correct_answer_finder(complete_list, random_word, must_use_char):
     correct_answers = []
     for item in complete_list:
         checked_word = ""
-        if len(item) < 8:
+        if len(item) > 3:
             if must_use_char in item:
                 for char in item:
                     if char in random_word:
