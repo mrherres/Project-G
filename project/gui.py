@@ -12,25 +12,37 @@ def check_score(answer, root):
     entry_field.delete(0, END)
     if answer.lower() in correct_list and answer.lower() not in answer_list:
         answer_list.append(answer)
-        score = 5 * len(answer_list)
+        earned_points = len(answer) - 3
+        if (pangram_check(answer, random_word) == True):
+            earned_points += 7
+        total_points = score_count(answer_list, random_word)
         label = Text(root, width='30')
-        label.insert(INSERT, "Correct! You get 5 points\nYou have {0} points!\n".format(score))
+        label.insert(INSERT, "Correct! You get {0} points\nYou have {1} points!\n".format(earned_points, total_points))
         label.grid(row=6, column=1, sticky='w')
         label.insert(INSERT, answer_list)
 
     elif answer.lower() in answer_list:
-        score = 5 * len(answer_list)
+        total_points = score_count(answer_list, random_word)
         label = Text(root, width='30')
-        label.insert(INSERT, "Oops! You already had that one!\nYou have {0} points!\n".format(score))
+        label.insert(INSERT, "Oops! You already had that one!\nYou have {0} points!\n".format(total_points))
         label.grid(row=6, column=1, sticky='w')
         label.insert(INSERT, answer_list)
 
     else:
-        score = 5 * len(answer_list)
+        total_points = score_count(answer_list, random_word)
         label = Text(root, width='30')
-        label.insert(INSERT, "Nope, try again!\nYou have {0} points!\n".format(score))
+        label.insert(INSERT, "Nope, try again!\nYou have {0} points!\n".format(total_points))
         label.grid(row=6, column=1, sticky='w')
         label.insert(INSERT, answer_list)
+
+
+def score_count(answer_list, pangram_status):
+    total_points = 0
+    for item in answer_list:
+        total_points += len(item) - 3
+        if (pangram_check(item, random_word) == True):
+            total_points += 7
+    return total_points
 
 
 def create_text_icon(a_word, root, char_list):
@@ -80,6 +92,7 @@ if __name__ == "__main__":
     root.geometry("700x400")
     
     answer_list = []
+    total_points = 0
     
     entry_field = Entry(root)
     entry_field.grid(row=4, column=1, sticky='w')

@@ -63,6 +63,13 @@ def correct_answer_finder(complete_list, random_word, must_use_char):
             correct_answers.append(item)
     return correct_answers
 
+def pangram_check(answer, random_word):
+    for char in random_word:
+        if char not in answer:
+            return False
+
+    return True
+
 
 #if __name__ == "__main__":
     #english_words = load_words()
