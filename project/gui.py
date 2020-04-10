@@ -13,23 +13,23 @@ def check_score(answer, root):
     if answer.lower() in correct_list and answer.lower() not in answer_list:
         answer_list.append(answer)
         score = 5 * len(answer_list)
-        label = Text(root)
+        label = Text(root, width='30')
         label.insert(INSERT, "Correct! You get 5 points\nYou have {0} points!\n".format(score))
-        label.grid(row=6, column=7)
+        label.grid(row=6, column=1, sticky='w')
         label.insert(INSERT, answer_list)
 
     elif answer.lower() in answer_list:
         score = 5 * len(answer_list)
-        label = Text(root)
+        label = Text(root, width='30')
         label.insert(INSERT, "Oops! You already had that one!\nYou have {0} points!\n".format(score))
-        label.grid(row=6, column=7)
+        label.grid(row=6, column=1, sticky='w')
         label.insert(INSERT, answer_list)
 
     else:
         score = 5 * len(answer_list)
-        label = Text(root)
+        label = Text(root, width='30')
         label.insert(INSERT, "Nope, try again!\nYou have {0} points!\n".format(score))
-        label.grid(row=6, column=7)
+        label.grid(row=6, column=1, sticky='w')
         label.insert(INSERT, answer_list)
 
 
@@ -58,7 +58,6 @@ def create_text_icon(a_word, root, char_list):
 
 
 def index_word(word, must_use_char):
-    print(word)
     word = word.replace(must_use_char, "")
     char1 = word[random.randint(0, 5)]
     word = word.replace(char1, "")
@@ -71,8 +70,6 @@ def index_word(word, must_use_char):
     char5 = word[random.randint(0, 1)]
     word = word.replace(char5, "")
     char6 = word
-   
-    print(char1, char2, char3, char4, char5, char6)
     char_list = [char1, char2, char3, char4, char5, char6]
     return char_list
 
@@ -85,11 +82,11 @@ if __name__ == "__main__":
     answer_list = []
     
     entry_field = Entry(root)
-    entry_field.grid(row=4, column=1)
+    entry_field.grid(row=4, column=1, sticky='w')
     entry_field.focus()
     
-    button1 = Button(root, command = get_input)
-    button1.grid(row=4, column=6)
+    button1 = Button(root, command = get_input, height=1, width=5, text='CHECK')
+    button1.grid(row=4, column=2)
     
     english_words = load_words()
     complete_list = remove_punc(english_words)#use this list for all words
