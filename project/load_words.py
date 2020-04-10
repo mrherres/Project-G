@@ -3,7 +3,7 @@ import json
 import random
 
 def load_words():
-    with open(sys.argv[1]) as word_file:
+    with open('words_dictionary.json', 'r') as word_file:
         valid_words = set(word_file.read().split())
 
     return valid_words
@@ -46,7 +46,6 @@ def get_random_word(uniq_char_words):
 def correct_answer_finder(complete_list, random_word):
     correct_answers = []
     must_use_char = random_word[random.randint(1, len(random_word))]
-    print(must_use_char)
     for item in complete_list:
         checked_word = ""
         if len(item) < 8:
@@ -59,14 +58,14 @@ def correct_answer_finder(complete_list, random_word):
     return correct_answers
 
 
-if __name__ == "__main__":
-    english_words = load_words()
-    complete_list = remove_punc(english_words)#use this list for all words
-    seven_char_list = seven_char_words(complete_list)
-    uniq_char_words = get_uniq(seven_char_list)
-    random_word = get_random_word(uniq_char_words)#the word in the honeycomb
-    correct_answers = correct_answer_finder(complete_list, random_word)
+#if __name__ == "__main__":
+    #english_words = load_words()
+    #complete_list = remove_punc(english_words)#use this list for all words
+    #seven_char_list = seven_char_words(complete_list)
+    #uniq_char_words = get_uniq(seven_char_list)
+    #random_word = get_random_word(uniq_char_words)#the word in the honeycomb
+    #correct_answers = correct_answer_finder(complete_list, random_word)
 
 
-    print(correct_answers)
-    print(random_word)
+    #print(correct_answers)
+    #print(random_word)
