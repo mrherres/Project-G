@@ -40,7 +40,7 @@ def check_score(answer, root):
         label.insert(INSERT, answer_list)
 
 
-def score_count(answer_list, pangram_status):
+def score_count(answer_list, random_word):
     total_points = 0
     for item in answer_list:
         total_points += len(item) - 3
