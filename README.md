@@ -16,69 +16,73 @@ character by character. This does however deduct a point for each letter given!
 
 
 --- Who did what ---
-Tidied up the program so that pycodestyle gives no errors. Also added…
-@mrherres
-mrherres committed 23 minutes ago
+--- Commits on Apr 12, 2020 ---
 
-Made an intro message and a hint function.
-@mrherres
-mrherres committed 2 hours ago
+    Tidied up the program so that pycodestyle gives no errors. Also added…
+    @mrherres
+    mrherres committed 23 minutes ago
+
+    Made an intro message and a hint function.
+    @mrherres
+    mrherres committed 2 hours ago
+
 --- Commits on Apr 10, 2020 ---
 
-Minor changes to the interface.
-@mrherres
-mrherres committed 2 days ago
+    Minor changes to the interface.
+    @mrherres
+    mrherres committed 2 days ago
 
-Fixed a wrong parameter
-@harmen01
-harmen01 committed 2 days ago
+    Fixed a wrong parameter
+    @harmen01
+    harmen01 committed 2 days ago
 
-Added a remaining words counter, does not display correctly at the mo…
-@harmen01
-harmen01 committed 2 days ago
+    Added a remaining words counter, does not display correctly at the mo…
+    @harmen01
+    harmen01 committed 2 days ago
 
-Added pangram_check and a functional score counting system
-@harmen01
-harmen01 committed 2 days ago
+    Added pangram_check and a functional score counting system
+    @harmen01
+    harmen01 committed 2 days ago
 
-Minor interface changes
-@mrherres
-mrherres committed 2 days ago
+    Minor interface changes
+    @mrherres
+    mrherres committed 2 days ago
 
-Fixed the index placement of the random word that is used.
-@mrherres
-mrherres committed 2 days ago
+    Fixed the index placement of the random word that is used.
+    @mrherres
+    mrherres committed 2 days ago
 
-index_word changes
-@harmen01
-harmen01 committed 2 days ago
+    index_word changes
+    @harmen01
+    harmen01 committed 2 days ago
 
-Minor bug fixes
-@mrherres
-mrherres committed 2 days ago
+    Minor bug fixes
+    @mrherres
+    mrherres committed 2 days ago
 
-Big commit
-@CainWeideman
-CainWeideman committed 2 days ago
+    Big commit
+    @CainWeideman
+    CainWeideman committed 2 days ago
+
 --- Commits on Apr 9, 2020 ---
 
-Added correct_answer_finder and minor updates
-@harmen01
-harmen01 committed 3 days ago
+    Added correct_answer_finder and minor updates
+    @harmen01
+    harmen01 committed 3 days ago
 
 --- Commits on Apr 8, 2020 ---
 
-Minor changes to the honeycomb.
-@mrherres
-mrherres committed 4 days ago
+    Minor changes to the honeycomb.
+    @mrherres
+    mrherres committed 4 days ago
 
-Created the honeycomb style.
-@mrherres
-mrherres committed 4 days ago
+    Created the honeycomb style.
+    @mrherres
+    mrherres committed 4 days ago
 
-Added a working score function. Also made a change that the game reco…
-@mrherres
-mrherres committed 4 days ago
+    Added a working score function. Also made a change that the game reco…
+    @mrherres
+    mrherres committed 4 days ago
 
 --- Commits on Apr 7, 2020 ---
 
