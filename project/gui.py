@@ -1,43 +1,65 @@
 from tkinter import *
+from tkinter import messagebox
 from load_words import *
 
 def get_input():
     p1_list = []
     p1 = entry_field.get()
     p1_list = p1_list.append(p1)
-    check_score(p1, root)
+    check_score(p1, root, 0)
     
-def check_score(answer, root):
+def check_score(answer, root, hint):
     correct_list = correct_answer_finder(complete_list, random_word, must_use_char)
     entry_field.delete(0, END)
-    if answer.lower() in correct_list and answer.lower() not in answer_list:
-        answer_list.append(answer)
-        earned_points = len(answer) - 3
-        if (pangram_check(answer, random_word) == True):
-            earned_points += 7
-        total_points = score_count(answer_list, random_word)
-        label = Text(root, width='30', wrap=WORD)
-        label.insert(INSERT, "Correct! You get {0} points\nYou have {1} points!\n".format(earned_points, total_points))
-        label.grid(row=6, column=1, sticky='w')
-        label.insert(INSERT, "{0} words remaining.\n".format(len(correct_list) - len(answer_list)))
-        label.grid(row=6, column=1, sticky='w')
-        label.insert(INSERT, answer_list)
+    if hint == 0:
+        if answer.lower() in correct_list and answer.lower() not in answer_list:
+            answer_list.append(answer)
+            earned_points = len(answer) - 3
+            if (pangram_check(answer, random_word) == True):
+                earned_points += 7 - len(hint_list)
+            total_points = score_count(answer_list, random_word)#We give the value 0 to show that this calculation is not for a hint.
+            label = Text(root, width='30', wrap=WORD)
+            label.insert(INSERT, "Correct! You get {0} points\nYou have {1} points!\n".format(earned_points, total_points - len(hint_list)))
+            label.grid(row=6, column=1, sticky='w')
+            label.insert(INSERT, "{0} words remaining.\n".format(len(correct_list) - len(answer_list)))
+            label.grid(row=6, column=1, sticky='w')
+            label.insert(INSERT, answer_list)
 
-    elif answer.lower() in answer_list:
-        total_points = score_count(answer_list, random_word)
-        label = Text(root, width='30', wrap=WORD)
-        label.insert(INSERT, "Oops! You already had that one!\nYou have {0} points!\n".format(total_points))
-        label.grid(row=6, column=1, sticky='w')
-        label.insert(INSERT, "{0} words remaining.\n".format(len(correct_list) - len(answer_list)))
-        label.insert(INSERT, answer_list)
+        elif answer.lower() in answer_list:
+            total_points = score_count(answer_list, random_word)
+            label = Text(root, width='30', wrap=WORD)
+            label.insert(INSERT, "Oops! You already had that one!\nYou have {0} points!\n".format(total_points - len(hint_list)))
+            label.grid(row=6, column=1, sticky='w')
+            label.insert(INSERT, "{0} words remaining.\n".format(len(correct_list) - len(answer_list)))
+            label.insert(INSERT, answer_list)
 
+        else:
+            total_points = score_count(answer_list, random_word)
+            label = Text(root, width='30', wrap=WORD)
+            label.insert(INSERT, "Nope, try again!\nYou have {0} points!\n".format(total_points - len(hint_list)))
+            label.grid(row=6, column=1, sticky='w')
+            label.insert(INSERT, "{0} words remaining.\n".format(len(correct_list) - len(answer_list)))
+            label.insert(INSERT, answer_list)
     else:
-        total_points = score_count(answer_list, random_word)
-        label = Text(root, width='30', wrap=WORD)
-        label.insert(INSERT, "Nope, try again!\nYou have {0} points!\n".format(total_points))
-        label.grid(row=6, column=1, sticky='w')
-        label.insert(INSERT, "{0} words remaining.\n".format(len(correct_list) - len(answer_list)))
-        label.insert(INSERT, answer_list)
+        if len(hint_list) < 7:
+            hint_list.append(1)
+            index = len(hint_list)
+            hint_box = Text(root, height=1, width=7)
+            hint_box.insert(INSERT, random_word[:index])
+            hint_box.grid(row=4, column=4)
+            total_points = score_count(answer_list, random_word)
+            label = Text(root, width='30', wrap=WORD)
+            label.insert(INSERT, "You used a hint!\nYou have {0} points!\n".format(total_points - len(hint_list)))
+            label.grid(row=6, column=1, sticky='w')
+            label.insert(INSERT, "{0} words remaining.\n".format(len(correct_list) - len(answer_list)))
+            label.insert(INSERT, answer_list)
+        else:
+            total_points = score_count(answer_list, random_word)
+            label = Text(root, width='30', wrap=WORD)
+            label.insert(INSERT, "Sorry, but you have no hints remaining!\nYou have {0} points!\n".format(total_points - len(hint_list)))
+            label.grid(row=6, column=1, sticky='w')
+            label.insert(INSERT, "{0} words remaining.\n".format(len(correct_list) - len(answer_list)))
+            label.insert(INSERT, answer_list)
 
 
 def score_count(answer_list, random_word):
@@ -45,7 +67,7 @@ def score_count(answer_list, random_word):
     for item in answer_list:
         total_points += len(item) - 3
         if (pangram_check(item, random_word) == True):
-            total_points += 7
+            total_points += 7 - len(hint_list)
     return total_points
 
 
@@ -90,12 +112,18 @@ def index_word(word, must_use_char):
     return char_list
 
 
+def action():
+    check_score(random_word, root, 1)
+
 if __name__ == "__main__":
     
     root = Tk()
     root.geometry("700x400")
+
+    messagebox.showinfo("Welcome!","Hello and welcome to our pangram puzzle!\nThere are a few rules you should keep in mind when playing this game:\n-only four letter words and longer are allowed\n-you can only use each word once\n-only Dutch words are allowed")
     
     answer_list = []
+    hint_list = []
     total_points = 0
     
     entry_field = Entry(root)
@@ -104,6 +132,7 @@ if __name__ == "__main__":
     
     button1 = Button(root, command = get_input, height=1, width=5, text='CHECK')
     button1.grid(row=4, column=2)
+
     
     english_words = load_words()
     complete_list = remove_punc(english_words)#use this list for all words
@@ -113,6 +142,8 @@ if __name__ == "__main__":
     must_use_char = must_use_char_pick(random_word)
     correct_answers = correct_answer_finder(complete_list, random_word, must_use_char)
 
+    button2 = Button(root, command = action, height=1, width=4, text='HINT')
+    button2.grid(row=4,column=3)
 
     #print(correct_answers)
     #print(random_word)
