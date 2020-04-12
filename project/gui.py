@@ -161,7 +161,10 @@ if __name__ == "__main__":
                         "\nThere are a few rules you should keep in mind when"
                         " playing this game: \n-only four letter words and"
                         " longer are allowed\n-you can only use each word once"
-                        " \n-only Dutch words are allowed")
+                        " \n-only Dutch words are allowed"
+                        " \n-letters can be used more then once"
+                        " \n-the letter in the yellow square must be used"
+                        " atleast once")
 
     answer_list = []
     hint_list = []
