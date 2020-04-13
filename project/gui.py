@@ -96,33 +96,33 @@ def score_count(answer_list, random_word):
 
 # This fucntion creates the squares with letter which the user can choose from
 def create_text_icon(a_word, root, char_list):
-        icon1 = Button(root, height=1, width=1, font='Arial 30', bg='pink',
-                       text=char_list[0])
-        icon1.grid(row=1, column=1, sticky='w', padx=30)
+    icon1 = Button(root, height=1, width=1, font='Arial 30', bg='pink',
+                   text=char_list[0])
+    icon1.grid(row=1, column=1, sticky='w', padx=30)
 
-        icon2 = Button(root, height=1, width=1, font='Arial 30', bg='pink',
-                       text=char_list[1])
-        icon2.grid(row=1, column=1, sticky='w', padx=90)
+    icon2 = Button(root, height=1, width=1, font='Arial 30', bg='pink',
+                   text=char_list[1])
+    icon2.grid(row=1, column=1, sticky='w', padx=90)
 
-        icon3 = Button(root, height=1, width=1, font='Arial 30', bg='pink',
-                       text=char_list[2])
-        icon3.grid(row=2, column=1, sticky='w')
-        # Icon4 creates the square with the letter that must be used
-        icon4 = Button(root, height=1, width=1, font='Arial 30', bg='yellow',
-                       text=must_use_char)
-        icon4.grid(row=2, column=1, sticky='w', padx=60)
+    icon3 = Button(root, height=1, width=1, font='Arial 30', bg='pink',
+                   text=char_list[2])
+    icon3.grid(row=2, column=1, sticky='w')
+    # Icon4 creates the square with the letter that must be used
+    icon4 = Button(root, height=1, width=1, font='Arial 30', bg='yellow',
+                   text=must_use_char)
+    icon4.grid(row=2, column=1, sticky='w', padx=60)
 
-        icon5 = Button(root, height=1, width=1, font='Arial 30', bg='pink',
-                       text=char_list[3])
-        icon5.grid(row=2, column=1, sticky='w', padx=120)
+    icon5 = Button(root, height=1, width=1, font='Arial 30', bg='pink',
+                   text=char_list[3])
+    icon5.grid(row=2, column=1, sticky='w', padx=120)
 
-        icon6 = Button(root, height=1, width=1, font='Arial 30', bg='pink',
-                       text=char_list[4])
-        icon6.grid(row=3, column=1, sticky='w', padx=30)
+    icon6 = Button(root, height=1, width=1, font='Arial 30', bg='pink',
+                   text=char_list[4])
+    icon6.grid(row=3, column=1, sticky='w', padx=30)
 
-        icon7 = Button(root, height=1, width=1, font='Arial 30', bg='pink',
-                       text=char_list[5])
-        icon7.grid(row=3, column=1, sticky='w', padx=90)
+    icon7 = Button(root, height=1, width=1, font='Arial 30', bg='pink',
+                   text=char_list[5])
+    icon7.grid(row=3, column=1, sticky='w', padx=90)
 
 
 # This function makes sure the index of the letters given to "create_text_icon"
