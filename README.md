@@ -60,7 +60,7 @@ character by character. This does however deduct a point for each letter given!
     @mrherres
     mrherres committed 2 days ago
 
-    Big commit
+    Big commit: imported load_words into gui and made the functions compatible.
     @CainWeideman
     CainWeideman committed 2 days ago
 
@@ -86,13 +86,13 @@ character by character. This does however deduct a point for each letter given!
 
 --- Commits on Apr 7, 2020 ---
 
-    GUI commit #3
+    GUI commit #3: Gui: get_input function was made.
     @CainWeideman
     CainWeideman committed 5 days ago
 
 --- Commits on Apr 5, 2020 ---
 
-    GUI #1
+    GUI #1: Gui: Entry and Textbox added to window.
     @CainWeideman
     CainWeideman committed 7 days ago
 
