@@ -16,32 +16,50 @@ character by character. This does however deduct a point for each letter given!
 
 
 --- Who did what ---
+
 On april 5, Cain made the first addition to gui.py by adding the function get_input. This function added a textbox and a button.
 
 On april 6, Twan added the functions create_text_icon and check_score.
 The funciton create_text_icon is used to make the puzzle itself show up, using 7 text icons.
 The function check_score is where the users anwers are checked.
 
+
 On april 7, Cain made some small changes to gui.py
 
+
 From april 8 and onwards, we started doing discord calls, so we could work together on the project.
+
 Cain made a start with load_words.py, a program to open and edit the word list so we could use it, by creating the functions load_words and remove_punc.
+
 Cain and Harmen worked together on the functions seven_char_words, get_uniq and get_random_word, while Twan focused on the honeycomb for the puzzle.
+
 
 On april 9, Harmen added correct_answer_finder to load_words and minor changes to gui.py\y
 
+
 On april 10, we worked together via discord once again.
+
 Cain made the functions from load_words.py compatible in gui.py
+
 Harmen added must_use_char_pick to load_words.py and made changes to correct_answer_finder and get_random_word.
+
 Twan and Harmen created the function index_word in gui.py.
+
 Twan made multiple changes to gui.py and load_words.py to integrate new functions.
+
 Harmen made multiple corrections and slightly edited load_words so it could read the dutchwords text file. He also added pangram check and a functional scoring and counting system and a remaining words status along with some minor changes to gui.py.
-Twan made changes to the interface
+
+Twan made changes to the interface.
+
 
 On april 12 and 13, the program already worked and only visual and minor changes were left to be made.
+
 Twan en Cain got rid of pycodestyle errors.
+
 All of us contributed to the readme.
+
 Twan made the hint and intro message
+
 
 ---Commits---
 
