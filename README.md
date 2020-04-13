@@ -55,6 +55,7 @@ Twan made changes to the interface.
 On april 12 and 13, the program already worked and only visual and minor changes were left to be made.
 
 Twan en Cain got rid of pycodestyle errors.
+Cain made the puzzle solver program.
 
 All of us contributed to the readme.
 
@@ -63,7 +64,37 @@ Twan made the hint and intro message
 
 ---Commits---
 
+--- Commits on Apr 13, 2020 ---
+
+    Finish README
+    @CainWeideman
+    CainWeideman commited 2 minutes ago
+
+    README format
+    @harmen01
+    harmen01 committed 10 minutes ago
+
+    README: who did what
+    @harmen01
+    harmen01 committed 30 minutes ago
+ 
+    Edited README
+    @CainWeideman
+    CainWeideman committed 6 hours ago
+ 
+    Pycodestyle fixed and added documentation to load_words
+    @CainWeideman
+    CainWeideman committed 6 hours ago
+ 
+    puzzle_solver commit #2: optimisation and pycodestyle
+    @CainWeideman
+    CainWeideman committed 7 hours ago
+
 --- Commits on Apr 12, 2020 ---
+
+    Commit puzzle_solver
+    @CainWeideman
+    CainWeideman committed yesterday
 
     Tidied up the program so that pycodestyle gives no errors. Also added…
     @mrherres
